@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\usepackage{marblesuperheroes}
+%\setmainfont{roboto condensed}
+
+\begin{document}
+\begin{tikzpicture}
+\large
+\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic at (-\horizdist,\vertdist) {fantasycharactercard={human_fighter2}{red_gem}{blue_gem}{black_gem}{black}{0.26}};
+\pic at (0\horizdist,\vertdist) {fantasycharactercard={elf_archer}{red_gem}{yellow_gem}{black_gem}{black}{0.26}};
+\pic at (\horizdist,\vertdist) {fantasycharactercard={halfling_druid}{blue_gem}{green_gem}{black_gem}{black}{0.26}};
+%%
+\pic at (-\horizdist,0\vertdist) {fantasycharactercard={human_wizard}{yellow_gem}{green_gem}{black_gem}{black}{0.26}};
+\pic at (0\horizdist,0\vertdist) {fantasycharactercard={human_rogue}{blue_gem}{yellow_gem}{black_gem}{black}{0.26}};
+\pic at (\horizdist,0\vertdist) {fantasycharactercard={dwarf_fighter}{red_gem}{green_gem}{black_gem}{black}{0.28}};
+%
+\end{tikzpicture}
+\end{document}

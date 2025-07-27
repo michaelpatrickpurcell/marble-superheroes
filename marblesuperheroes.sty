@@ -1,0 +1,175 @@
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{contour}
+\contourlength{0.25mm}
+\contournumber{1024}
+
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+
+\usepackage{calc}
+\usepackage{fontspec}
+
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\newlength{\cardwidth}
+\newlength{\cardheight}
+\newlength{\bleed}
+\newlength{\horizspace}
+\newlength{\vertspace}
+\newlength{\vertdist}
+\newlength{\horizdist}
+
+\setlength{\cardwidth}{2.5in}
+\setlength{\cardheight}{3.5in}
+\setlength{\bleed}{0.0625in}
+\setlength{\horizspace}{0.0625in}
+\setlength{\horizdist}{\cardwidth + 2\bleed + \horizspace}
+\setlength{\vertspace}{0.0625in}
+\setlength{\vertdist}{\cardheight + 2\bleed + \vertspace}
+
+\tikzset{guidecross/.pic={
+	\draw[#1] (-\bleed,0) -- (\bleed,0);
+	\draw[#1] (0, -\bleed) -- (0, \bleed);
+}}
+
+\tikzset{cutguide/.pic={
+	\pic () at (-\cardwidth/2, \cardheight/2) {guidecross={#1}};
+	\pic () at (\cardwidth/2, \cardheight/2) {guidecross={#1}};
+	\pic () at (-\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+	\pic () at (\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+}}
+
+\tikzset{cardbackpattern/.pic={
+	\foreach \i in {-1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in}
+		\foreach \j in {-1.75in, -1.5in, -1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in, 1.5in, 1.75in}
+			\draw[ultra thick, black] (\i,\j) circle (0.105in);
+
+	\foreach \i in {-1.375in, -1.125in, -0.875in,-0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in}
+		\foreach \j in {-1.875in, -1.625in, -1.375in, -1.125in, -0.875in, -0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in, 1.625in, 1.875in}
+			\draw[ultra thick, black] (\i,\j) circle (0.105in);
+			
+	\foreach \i in {-1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in}
+		\foreach \j in {-1.75in, -1.5in, -1.25in, -1.0in, -0.75in, -0.5in, -0.25in, 0in, 0.25in, 0.5in, 0.75in, 1.0in, 1.25in, 1.5in, 1.75in}
+			\draw[thick, #1] (\i,\j) circle (0.105in);
+
+	\foreach \i in {-1.375in, -1.125in, -0.875in,-0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in}
+		\foreach \j in {-1.875in, -1.625in, -1.375in, -1.125in, -0.875in, -0.625in, -0.375in, -0.125in, 0.125in, 0.375in, 0.625in, 0.875in, 1.125in, 1.375in, 1.625in, 1.875in}
+			\draw[thick, #1] (\i,\j) circle (0.105in);
+}}
+
+\tikzset{red_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/red_gem.png}};
+}}
+
+\tikzset{black_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/black_gem.png}};
+}}
+
+\tikzset{blue_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/blue_gem.png}};
+}}
+
+\tikzset{green_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/green_gem.png}};
+}}
+
+\tikzset{yellow_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/yellow_gem.png}};
+}}
+
+\tikzset{white_gem/.pic={
+	\node at (0,0) {\includegraphics[height=1.75in]{Images/white_gem.png}};
+}}
+
+\tikzset{pics/charactercard/.style n args={5}{%
+	code={
+		\begin{scope}
+		\clip (-\cardwidth/2 - \bleed, 0in) --%
+		      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+		      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+		      cycle;
+		\path[fill=white] (-\cardwidth/2 - \bleed, 0in) --%
+		      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+		      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+		      cycle;
+
+		% Pattern for card front
+%		\node[draw, minimum width=2.5in, minimum height=3.5in, inner sep=0pt] at (0,0) {};
+
+		\node[draw, ultra thick, rounded corners=3mm, minimum height=2.25in, minimum width=2.25in] at (0, 0.5in) {\includegraphics[height=2in]{Images/#1}};
+		
+		\node[draw, ultra thick, rounded corners=3mm, minimum height=0.875in, minimum width=2.25in] at (0,-1.1875in) {};
+
+		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#2}};	
+		\node at (0,-1.1875in) {\includegraphics[height=0.625in]{Images/#3}};
+		\node at (0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#4}};
+
+		\end{scope}
+		% Cutting guides for corners of the cards	
+		\pic () at (0,0) {cutguide={#5}};
+}}}
+
+\tikzset{pics/fantasycharactercard/.style n args={6}{%
+	code={
+		\begin{scope}
+		\clip (-\cardwidth/2 - \bleed, 0in) --%
+		      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+		      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+		      cycle;
+		\path[fill=white] (-\cardwidth/2 - \bleed, 0in) --%
+		      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+		      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+		      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+		      cycle;
+
+		% Pattern for card front
+%		\node[draw, minimum width=2.5in, minimum height=3.5in, inner sep=0pt] at (0,0) {};
+
+		\node[draw, ultra thick, rounded corners=3mm, minimum height=2.25in, minimum width=2.25in] at (0, 0.5in) {};
+		\node[inner sep=0pt, anchor=south] at (0, -0.5in) {\includegraphics[scale=#6]{Images/#1}};
+		
+		\node[draw, ultra thick, rounded corners=3mm, minimum height=0.875in, minimum width=2.25in] at (0,-1.1875in) {};
+
+		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#2}};	
+		\node at (0,-1.1875in) {\includegraphics[height=0.625in]{Images/#3}};
+		\node at (0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#4}};
+
+		\end{scope}
+		% Cutting guides for corners of the cards	
+		\pic () at (0,0) {cutguide={#5}};
+}}}
+
+\tikzset{pics/charactercardback/.style n args={2}{
+	code={
+	\begin{scope}
+	\clip (-\cardwidth/2 - \bleed, 0in) --%
+	      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+	      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+	      cycle;
+	% Pattern for card back
+	\path[fill=#1] (-\cardwidth/2 - \bleed, 0in) --%
+	      (-\cardwidth/2 - \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, \cardheight/2 + \bleed) --%
+	      (\cardwidth/2 + \bleed, -\cardheight/2 - \bleed) --%
+	      (-\cardwidth/2 - \bleed, -\cardheight/2 - \bleed) --%
+	      cycle;
+	\pic () at (0,0) {cardbackpattern={#2}};
+	% Cutting guides for corners of the cards	
+%	\pic () at (0,0) {cutguide={#2}};
+\end{scope}
+}}}

@@ -1,0 +1,22 @@
+\documentclass{standalone}
+
+\usepackage{marblesuperheroes}
+
+\begin{document}
+\begin{tikzpicture}
+\Huge
+\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic at (\horizdist,\vertdist) {charactercardback={Purple}{white}};
+\pic at (0,\vertdist) {charactercardback={Purple}{white}};
+\pic at (-\horizdist,\vertdist) {charactercardback={Purple}{white}};
+
+\pic at (\horizdist,0) {charactercardback={Purple}{white}};
+\pic at (0,0) {charactercardback={Purple}{white}};
+\pic at (-\horizdist,0) {charactercardback={Purple}{white}};
+
+%\pic at (\horizdist,-\vertdist) {charactercardback={Purple}{white}};
+%\pic at (0,-\vertdist) {charactercardback={Purple}{white}};
+%\pic at (-\horizdist,-\vertdist) {charactercardback={Purple}{white}};
+
+\end{tikzpicture}
+\end{document}

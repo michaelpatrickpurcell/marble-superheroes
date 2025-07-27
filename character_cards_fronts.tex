@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\usepackage{marblesuperheroes}
+%\setmainfont{roboto condensed}
+
+\begin{document}
+\begin{tikzpicture}
+\large
+\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic at (-\horizdist,\vertdist) {charactercard={superhero_4l}{red_gem}{blue_gem}{white_gem}{black}};
+\pic at (0\horizdist,\vertdist) {charactercard={superhero_2l}{blue_gem}{green_gem}{white_gem}{black}};
+\pic at (\horizdist,\vertdist) {charactercard={superhero_3l}{red_gem}{green_gem}{white_gem}{black}};
+%
+\pic at (-\horizdist,0\vertdist) {charactercard={superheroine_1l}{yellow_gem}{green_gem}{white_gem}{black}};
+\pic at (0\horizdist,0\vertdist) {charactercard={superheroine_2l}{red_gem}{yellow_gem}{white_gem}{black}};
+\pic at (\horizdist,0\vertdist) {charactercard={superheroine_4l}{blue_gem}{yellow_gem}{white_gem}{black}};
+%
+\end{tikzpicture}
+\end{document}
