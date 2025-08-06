@@ -13,9 +13,22 @@
 
 \usepackage{calc}
 \usepackage{fontspec}
+\usepackage[letterspace=1000]{microtype}
+
+\ExplSyntaxOn
+\newcommand{\rotateeach}[1]{
+  \:\str_map_inline:nn {#1} {
+    \rotatebox{90}{##1}\:  
+  }
+}
+\ExplSyntaxOff
+
+
 
 \usepackage{booktabs}
 \usepackage{enumitem}
+
+
 
 \newlength{\cardwidth}
 \newlength{\cardheight}
@@ -33,9 +46,19 @@
 \setlength{\vertspace}{0.0625in}
 \setlength{\vertdist}{\cardheight + 2\bleed + \vertspace}
 
+\newlength{\tarotcardwidth}
+\newlength{\tarotcardheight}
+\newlength{\tarotvertdist}
+\newlength{\tarothorizdist}
+
+\setlength{\tarotcardwidth}{2.75in}
+\setlength{\tarotcardheight}{4.75in}
+\setlength{\horizdist}{\cardwidth + 2\bleed + \horizspace}
+\setlength{\vertdist}{\cardheight + 2\bleed + \vertspace}
+
 \tikzset{guidecross/.pic={
-	\draw[#1] (-\bleed,0) -- (\bleed,0);
-	\draw[#1] (0, -\bleed) -- (0, \bleed);
+	\draw[#1, thick] (-\bleed,0) -- (\bleed,0);
+	\draw[#1, thick] (0, -\bleed) -- (0, \bleed);
 }}
 
 \tikzset{cutguide/.pic={
@@ -43,6 +66,13 @@
 	\pic () at (\cardwidth/2, \cardheight/2) {guidecross={#1}};
 	\pic () at (-\cardwidth/2, -\cardheight/2) {guidecross={#1}};
 	\pic () at (\cardwidth/2, -\cardheight/2) {guidecross={#1}};
+}}
+
+\tikzset{tarotcutguide/.pic={
+	\pic () at (-\tarotcardwidth/2, \tarotcardheight/2) {guidecross={#1}};
+	\pic () at (\tarotcardwidth/2, \tarotcardheight/2) {guidecross={#1}};
+	\pic () at (-\tarotcardwidth/2, -\tarotcardheight/2) {guidecross={#1}};
+	\pic () at (\tarotcardwidth/2, -\tarotcardheight/2) {guidecross={#1}};
 }}
 
 \tikzset{cardbackpattern/.pic={
@@ -110,9 +140,9 @@
 		
 		\node[draw, ultra thick, rounded corners=3mm, minimum height=0.875in, minimum width=2.25in] at (0,-1.1875in) {};
 
-		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#2}};	
-		\node at (0,-1.1875in) {\includegraphics[height=0.625in]{Images/#3}};
-		\node at (0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#4}};
+		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.6in]{Images/#2}};	
+		\node at (0,-1.1875in) {\includegraphics[height=0.6in]{Images/#3}};
+		\node at (0.7in,-1.1875in) {\includegraphics[height=0.6in]{Images/#4}};
 
 		\end{scope}
 		% Cutting guides for corners of the cards	
@@ -143,9 +173,9 @@
 		
 		\node[draw, ultra thick, rounded corners=3mm, minimum height=0.875in, minimum width=2.25in] at (0,-1.1875in) {};
 
-		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#2}};	
-		\node at (0,-1.1875in) {\includegraphics[height=0.625in]{Images/#3}};
-		\node at (0.7in,-1.1875in) {\includegraphics[height=0.625in]{Images/#4}};
+		\node at (-0.7in,-1.1875in) {\includegraphics[height=0.6in]{Images/#2}};	
+		\node at (0,-1.1875in) {\includegraphics[height=0.6in]{Images/#3}};
+		\node at (0.7in,-1.1875in) {\includegraphics[height=0.6in]{Images/#4}};
 
 		\end{scope}
 		% Cutting guides for corners of the cards	
@@ -172,4 +202,749 @@
 	% Cutting guides for corners of the cards	
 %	\pic () at (0,0) {cutguide={#2}};
 \end{scope}
+}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Brutus Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{brutusorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{brutusorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{brutusorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{brutuspowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {brutusorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {brutusorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Push target back 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {brutusorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self forward 1.};	
+
+}}
+
+\tikzset{brutuspowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {brutusorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {brutusorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Push target back 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {brutusorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self forward 1.};	
+
+}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Spring Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{springorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	\draw[ultra thick] (a) -- (b);
+%	\draw[Red, very thick] (a) -- (b);
+
+	}
+}
+
+\tikzset{springorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{springorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{springpowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {springorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {springorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Pull target forward 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {springorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self back 1.};	
+
+}}
+
+\tikzset{springpowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {springorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {springorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Pull target forward 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {springorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self back 1.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Clarke Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{clarkeorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	}
+}
+
+\tikzset{clarkeorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{clarkeorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{clarkepowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {clarkeorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {clarkeorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self 2.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {clarkeorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self 1.\\Move self to front.};	
+
+}}
+
+\tikzset{clarkepowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {clarkeorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {clarkeorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self 2.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {clarkeorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self 1.\\Move self to front.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Joules Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{julietorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	
+	\draw[ultra thick] (b) -- (c);
+
+	}
+}
+
+\tikzset{julietorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{julietorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{julietpowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {julietorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {julietorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {julietorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self forward 1.};	
+
+}}
+
+\tikzset{julietpowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {julietorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {julietorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {julietorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self forward 1.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Herald Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{heraldorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	
+	}
+}
+
+\tikzset{heraldorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+
+	\draw[ultra thick] (a) -- (b) -- (c);
+
+	}
+}
+
+\tikzset{heraldorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{heraldpowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {heraldorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {heraldorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {heraldorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self back 1.};	
+
+}}
+
+\tikzset{heraldpowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {heraldorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {heraldorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {heraldorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self back 1.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Victor Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{victororbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	
+	}
+}
+
+\tikzset{victororbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	}
+}
+
+\tikzset{victororbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{victorpowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {victororbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {victororbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Pull target forward 1 or push target back 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {victororbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self to middle.};	
+
+}}
+
+\tikzset{victorpowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {victororbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {victororbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Pull target forward 1 or push target back 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {victororbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self to middle.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Athena Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{athenaorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	
+	}
+}
+
+\tikzset{athenaorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	}
+}
+
+\tikzset{athenaorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{athenapowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {athenaorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {athenaorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {athenaorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self forward 1.};	
+
+}}
+
+\tikzset{athenapowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {athenaorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Heal self or ally 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {athenaorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {athenaorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self forward 1.};	
+
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% xerxes Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{xerxesorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	
+	}
+}
+
+\tikzset{xerxesorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	}
+}
+
+\tikzset{xerxesorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{xerxespowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {xerxesorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Push target back 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {xerxesorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {xerxesorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.\\Move self forward 1.};	
+
+}}
+
+\tikzset{xerxespowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {xerxesorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Push target back 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {xerxesorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {xerxesorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.\\Move self forward 1.};	
+
+}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% lilith Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{lilithorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+	
+	}
+}
+
+\tikzset{lilithorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	}
+}
+
+\tikzset{lilithorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{lilithpowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {lilithorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {lilithorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {lilithorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self to rear.};	
+
+}}
+
+\tikzset{lilithpowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {lilithorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {lilithorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {lilithorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1.\\Move self to rear.};	
+
+}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Trixie Data         %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{trixieorbs1/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) (c) {};
+	
+	\draw[ultra thick] (a) -- (b) -- (c);
+	}
+}
+
+\tikzset{trixieorbs2/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] (a) at (0.625cm,0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (b) at (1.25cm, 0) {};
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] (c) at (1.875cm,0) {};
+	}
+}
+
+\tikzset{trixieorbs3/.pic={
+%	\path (-0.875in, 0) -- (0.875in, 0);
+
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.25cm, 0) {};
+	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-0.625cm,0) {};
+
+	\node[draw, fill=Red, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (0.625cm,0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.25cm, 0) {};
+	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (1.875cm,0) {};
+
+	}
+}
+
+\tikzset{trixiepowers/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic {trixieorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic {trixieorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic {trixieorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.\\Move self to middle.};	
+
+}}
+
+\tikzset{trixiepowersalt/.pic={
+		\large
+		\node[text width=1.75in, minimum width=2in] at (0, 0.8in) {\tikz{\pic[xscale=-1, transform shape] {trixieorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage all targets 1.};	
+				
+		\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=-1, transform shape] {trixieorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.};	
+
+		\node[text width=1.75in, minimum width=2in] at (0, -0.8in) {\tikz{\pic[xscale=-1, transform shape] {trixieorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Stun target 1.\\Move self to middle.};	
+
+}}
+
+\tikzset{pics/characterportfoliofront/.style n args={6}{%
+	code={
+		\begin{scope}
+		\clip (-\tarotcardwidth/2 - \bleed, 0in) --%
+		      (-\tarotcardwidth/2 - \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, -\tarotcardheight/2 - \bleed) --%
+		      (-\tarotcardwidth/2 - \bleed, -\tarotcardheight/2 - \bleed) --%
+		      cycle;
+		\path[fill=white] (-\tarotcardwidth/2 - \bleed, 0in) --%
+		      (-\tarotcardwidth/2 - \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, -\tarotcardheight/2 - \bleed) --%
+		      (-\tarotcardwidth/2 - \bleed, -\tarotcardheight/2 - \bleed) --%
+		      cycle;
+
+		% Pattern for card front
+%		\node[draw, minimum width=2.75in, minimum height=4.75in, inner sep=0pt] at (0,0) {};
+
+		\draw[fill=black] (-\tarotcardwidth - \bleed, 0) rectangle (-0.625in, \tarotcardheight + \bleed);
+
+		\node[fill=black, minimum height=0.75in, minimum width=2.375in, inner sep=0pt, rotate=-90, transform shape] at (-1in,1.1875in) {\setmainfont[Scale=1.125]{Rubik Mono One}\Huge \textcolor{white}{\rotateeach{#5}}};
+
+		\node at (0.375in, 1.1875in) {\includegraphics[height=2in]{Images/#1}};
+		
+		\draw[ultra thick] (-2in, 0) -- (2in, 0);
+
+		\node at (-1in, -1.1875in + 0.8in) {\includegraphics[height=0.55in]{Images/#2}};
+		\draw[ultra thick] (-2in, -1.1875in + 0.4in) -- (2in, -1.1875in + 0.4in);
+		\node at (-1in,-1.1875in) {\includegraphics[height=0.55in]{Images/#3}};
+		\draw[ultra thick] (-2in, -1.1875in - 0.4in) -- (2in, -1.1875in - 0.4in);
+		\node at (-1in,-1.1875in - 0.8in) {\includegraphics[height=0.55in]{Images/#4}};
+
+		\pic at (0.375in,-1.1875in) {#5powers};
+
+		\end{scope}
+		% Cutting guides for corners of the cards	
+		\pic () at (0,0) {tarotcutguide={#6}};
+}}}
+
+\tikzset{pics/characterportfolioback/.style n args={6}{%
+	code={
+		\begin{scope}
+		\clip (-\tarotcardwidth/2 - \bleed, 0in) --%
+		      (-\tarotcardwidth/2 - \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, -\tarotcardheight/2 - \bleed) --%
+		      (-\tarotcardwidth/2 - \bleed, -\tarotcardheight/2 - \bleed) --%
+		      cycle;
+		\path[fill=white] (-\tarotcardwidth/2 - \bleed, 0in) --%
+		      (-\tarotcardwidth/2 - \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, \tarotcardheight/2 + \bleed) --%
+		      (\tarotcardwidth/2 + \bleed, -\tarotcardheight/2 - \bleed) --%
+		      (-\tarotcardwidth/2 - \bleed, -\tarotcardheight/2 - \bleed) --%
+		      cycle;
+
+		% Pattern for card front
+%		\node[draw, minimum width=2.75in, minimum height=4.75in, inner sep=0pt] at (0,0) {};
+
+		\draw[fill=black] (\tarotcardwidth + \bleed, 0) rectangle (0.625in, \tarotcardheight + \bleed);
+
+		\node[fill=black, minimum height=0.75in, minimum width=2.375in, inner sep=0pt, rotate=-90, transform shape] at (1in,1.1875in) {\setmainfont[Scale=1.125]{Rubik Mono One}\Huge \textcolor{white}{\rotateeach{#5}}};
+
+		\node at (-0.375in, 1.1875in) {\includegraphics[height=2in]{Images/#1}};
+		
+		\draw[ultra thick] (-2in, 0) -- (2in, 0);
+
+		\node at (1in, -1.1875in + 0.8in) {\includegraphics[height=0.55in]{Images/#2}};
+		\draw[ultra thick] (-2in, -1.1875in + 0.4in) -- (2in, -1.1875in + 0.4in);
+		\node at (1in,-1.1875in) {\includegraphics[height=0.55in]{Images/#3}};
+		\draw[ultra thick] (-2in, -1.1875in - 0.4in) -- (2in, -1.1875in - 0.4in);
+		\node at (1in,-1.1875in - 0.8in) {\includegraphics[height=0.55in]{Images/#4}};
+
+		\pic at (-0.375in,-1.1875in) {#5powersalt};
+
+		\end{scope}
+		% Cutting guides for corners of the cards	
+%		\pic () at (0,0) {tarotcutguide={#6}};
 }}}
