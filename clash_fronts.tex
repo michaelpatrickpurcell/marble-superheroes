@@ -1,0 +1,22 @@
+\documentclass{standalone}
+
+\usepackage{marblesuperheroes}
+%\setmainfont{roboto condensed}
+
+\begin{document}
+\begin{tikzpicture}
+\path (-105mm, -148.5mm) -- (105mm, 148.5mm);
+\pic[rotate=90, transform shape] at (-1.75in, 4in) {clashcard={BrickRed}{Goldenrod}{YellowGreen}{Blue!85}{Black}{White}{}{Gray}};
+\pic[rotate=90, transform shape] at (-1.75in, 2in) {clashcard={BrickRed}{YellowGreen}{Blue!85}{Goldenrod}{Black}{White}{}{Gray}};
+\pic[rotate=90, transform shape] at (-1.75in, 0) {clashcard={BrickRed}{Blue!85}{Black}{Goldenrod}{YellowGreen}{White}{}{Gray}};
+\pic[rotate=90, transform shape] at (-1.75in, -2in) {clashcard={BrickRed}{Black}{White}{Goldenrod}{YellowGreen}{Blue!85}{}{Gray}};
+\pic[rotate=90, transform shape] at (-1.75in, -4in) {clashcard={BrickRed}{Goldenrod}{White}{YellowGreen}{Blue!85}{Black}{}{Gray}};
+
+\pic[rotate=90, transform shape] at (1.75in, 4in) {clashcard={YellowGreen}{Black}{White}{BrickRed}{Goldenrod}{Blue!85}{}{Gray}};
+\pic[rotate=90, transform shape] at (1.75in, 2in) {clashcard={YellowGreen}{Blue!85}{White}{BrickRed}{Goldenrod}{Black}{}{Gray}};
+\pic[rotate=90, transform shape] at (1.75in, 0in) {clashcard={Goldenrod}{Blue!85}{White}{BrickRed}{YellowGreen}{Black}{}{Gray}};
+\pic[rotate=90, transform shape] at (1.75in, -2in) {clashcard={Goldenrod}{Blue!85}{Black}{BrickRed}{YellowGreen}{White}{}{Gray}};
+\pic[rotate=90, transform shape] at (1.75in, -4in) {clashcard={Goldenrod}{YellowGreen}{Black}{BrickRed}{Blue!85}{White}{}{Gray}};
+
+\end{tikzpicture}
+\end{document}
