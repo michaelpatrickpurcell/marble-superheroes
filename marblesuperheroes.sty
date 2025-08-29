@@ -237,8 +237,12 @@
 	}
 }
 
+%\tikzset{brutuspower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.\\Move self back 1.};	
+%}}
+
 \tikzset{brutuspower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Furious Assault}\\[0.25ex]Damage target 1/3/5.};	
 }}
 
 \tikzset{brutusorbs2/.pic={
@@ -255,8 +259,12 @@
 	}
 }
 
+%\tikzset{brutuspower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Push target back 1.};	
+%}}
+
 \tikzset{brutuspower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Push target back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Bull Rush}\\[0.25ex]Damage target 1/2/3.\\Push target back 1.};	
 }}
 
 \tikzset{brutusorbs3/.pic={
@@ -273,8 +281,12 @@
 	}
 }
 
+%\tikzset{brutuspower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self forward 1.};	
+%}}
+
 \tikzset{brutuspower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {brutusorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Push target back 1.\\Move self forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Reckless Charge}\\[0.25ex]Damage self 2.\\Damage target 4.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -298,10 +310,13 @@
 	}
 }
 
-\tikzset{springpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self forward 1.};	
-}}
+%\tikzset{springpower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self forward 1.};	
+%}}
 
+\tikzset{springpower1/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Ice Storm}\\[0.25ex]Damage 1/2/3 targets 2.};	
+}}
 
 \tikzset{springorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -317,9 +332,14 @@
 	}
 }
 
+%\tikzset{springpower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Pull target to front.};	
+%}}
+
 \tikzset{springpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Pull target to front.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Slip and Slide}\\[0.25ex]Damage target 1/2/3.\\Pull target to front.};	
 }}
+
 
 \tikzset{springorbs3/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -335,8 +355,12 @@
 	}
 }
 
+%\tikzset{springpower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Pull target forward 1.\\Move self back 1.};	
+%}}
+
 \tikzset{springpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Pull target forward 1.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Frozen Cage}\\[0.25ex]Stun target 1.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -356,9 +380,14 @@
 	}
 }
 
+%\tikzset{clarkepower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.};	
+%}}
+
 \tikzset{clarkepower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Mighty Blow}\\[0.25ex]Damage target 1/3/5.};	
 }}
+
 
 \tikzset{clarkeorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -374,9 +403,14 @@
 	}
 }
 
+%\tikzset{clarkepower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self back 1.};	
+%}}
+
 \tikzset{clarkepower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Iron Dome}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.};	
 }}
+
 
 \tikzset{clarkeorbs3/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -392,8 +426,12 @@
 	}
 }
 
+%\tikzset{clarkepower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self to front.};	
+%}}
+
 \tikzset{clarkepower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {clarkeorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self to front.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Indefatigable}\\[0.25ex]Heal self 4.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -416,9 +454,14 @@
 	}
 }
 
+%\tikzset{julietpower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self back 1.};	
+%}}
+
 \tikzset{julietpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Electrocute}\\[0.25ex]Damage 1/2/3 targets 2.};	
 }}
+
 
 \tikzset{julietorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -434,8 +477,12 @@
 	}
 }
 
+%\tikzset{julietpower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.};	
+%}}
+
 \tikzset{julietpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Force Field}\\[0.25ex]Shield 1/2/3 allies.};	
 }}
 
 \tikzset{julietorbs3/.pic={
@@ -452,8 +499,12 @@
 	}
 }
 
+%\tikzset{julietpower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+%}}
+
 \tikzset{julietpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {julietorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Lightning Speed}\\[0.25ex]Activate self 2.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -474,10 +525,13 @@
 	}
 }
 
-\tikzset{heraldpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.\\Move self forward 1.};	
-}}
+%\tikzset{heraldpower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.\\Move self forward 1.};	
+%}}
 
+\tikzset{heraldpower1/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Sonic Boom}\\[0.25ex]Damage target 1/3/5.};	
+}}
 
 \tikzset{heraldorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -495,8 +549,12 @@
 	}
 }
 
+%\tikzset{heraldpower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.};	
+%}}
+
 \tikzset{heraldpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Beat Drop}\\[0.25ex]Damage 1/2/3 targets 2.};	
 }}
 
 \tikzset{heraldorbs3/.pic={
@@ -513,8 +571,12 @@
 	}
 }
 
+%\tikzset{heraldpower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self back 1.};	
+%}}
+
 \tikzset{heraldpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {heraldorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Remix}\\[0.25ex]Mix \& collect 1.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -535,8 +597,12 @@
 	}
 }
 
+%\tikzset{victorpower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self forward 1.};
+%}}
+
 \tikzset{victorpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self forward 1.};
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Spinning Shield}\\[0.25ex]Shield 1/2/3 allies.};
 }}
 
 \tikzset{victororbs2/.pic={
@@ -552,8 +618,12 @@
 	}
 }
 
+%\tikzset{victorpower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Push target to rear.};
+%}}
+
 \tikzset{victorpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Push target to rear.};
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Penetrating Gaze}\\[0.25ex]Damage target 1/2/3.\\Push target to rear.};
 }}
 
 \tikzset{victororbs3/.pic={
@@ -570,8 +640,12 @@
 	}
 }
 
+%\tikzset{victorpower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield self.\\Move self to middle.};	
+%}}
+
 \tikzset{victorpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {victororbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield self.\\Move self to middle.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Confiscate}\\[0.25ex]Steal from target 1.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -592,8 +666,12 @@
 	}
 }
 
+%\tikzset{athenapower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self back 1.};	
+%}}
+
 \tikzset{athenapower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Aegis of Truth}\\[0.25ex]Shield 1/2/3 allies.};	
 }}
 
 \tikzset{athenaorbs2/.pic={
@@ -609,8 +687,12 @@
 		}
 }
 
+%\tikzset{athenapower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.};	
+%}}
+
 \tikzset{athenapower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Nerve Strike}\\[0.25ex]Drain target 1/2/3.};	
 }}
 
 \tikzset{athenaorbs3/.pic={
@@ -627,8 +709,12 @@
 	}
 }
 
+%\tikzset{athenapower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+%}}
+
 \tikzset{athenapower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {athenaorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Revitalize}\\[0.25ex]Heal self 2.\\Heal all allies 2.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -649,8 +735,12 @@
 	}
 }
 
+%\tikzset{xerxespower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Pull target forward 1.};	
+%}}
+
 \tikzset{xerxespower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Pull target forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Gravity Well}\\[0.25ex]Damage target 1/2/3.\\Pull target forward 1.};	
 }}
 
 \tikzset{xerxesorbs2/.pic={
@@ -667,8 +757,12 @@
 	}
 }
 
+%\tikzset{xerxespower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.\\Move self back 1.};	
+%}}
+
 \tikzset{xerxespower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.\\Move self back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Enervate}\\[0.25ex]Drain target 1/2/3.};	
 }}
 
 \tikzset{xerxesorbs3/.pic={
@@ -685,8 +779,12 @@
 	}
 }
 
+%\tikzset{xerxespower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+%}}
+
 \tikzset{xerxespower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {xerxesorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Wave of Exhaustion}\\[0.25ex]Drain all characters 2.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -707,9 +805,14 @@
 	}
 }
 
+%\tikzset{lilithpower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.};	
+%}}
+
 \tikzset{lilithpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/3/5.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Melting Point}\\[0.25ex]Damage target 1/3/5.};	
 }}
+
 
 \tikzset{lilithorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -725,8 +828,12 @@
 	}
 }
 
+%\tikzset{lilithpower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.\\Move self forward 1.};	
+%}}
+
 \tikzset{lilithpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.\\Move self forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Heat Stroke}\\[0.25ex]Drain target 1/2/3.};	
 }}
 
 \tikzset{lilithorbs3/.pic={
@@ -743,8 +850,12 @@
 	}
 }
 
+%\tikzset{lilithpower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self to rear.};	
+%}}
+
 \tikzset{lilithpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {lilithorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 2.\\Move self to rear.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Firestorm}\\[0.25ex]Damage all characters 1.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -766,10 +877,13 @@
 	}
 }
 
-\tikzset{trixiepower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self forward 1.};	
-}}
+%\tikzset{trixiepower1/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self forward 1.};	
+%}}
 
+\tikzset{trixiepower1/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Shock and Awe}\\[0.25ex]Damage 1/2/3 targets 2.};	
+}}
 
 \tikzset{trixieorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -787,9 +901,14 @@
 	}
 }
 
+%\tikzset{trixiepower2/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.};	
+%}}
+
 \tikzset{trixiepower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1/2/3.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Slight of Hand}\\[0.25ex]Drain target 1/2/3.};	
 }}
+
 
 \tikzset{trixieorbs3/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
@@ -805,8 +924,12 @@
 	}
 }
 
+%\tikzset{trixiepower3/.pic={
+%	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1.\\Move self to middle.};
+%}}
+
 \tikzset{trixiepower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[scale=#1, transform shape] {trixieorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Drain target 1.\\Move self to middle.};
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Summon Support}\\[0.25ex]Draw from supply 2.};
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
