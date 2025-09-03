@@ -264,7 +264,7 @@
 %}}
 
 \tikzset{brutuspower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Bull Rush}\\[0.25ex]Damage target 1/2/3.\\Push target back 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Bull Rush}\\[0.25ex]Damage target 1/2/3.\\Reposition target.};	
 }}
 
 \tikzset{brutusorbs3/.pic={
@@ -290,10 +290,10 @@
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
-% Spring Data         %
+% Noelle Data         %
 %%%%%%%%%%%%%%%%%%%%%%%
 
-\tikzset{springorbs1/.pic={
+\tikzset{noelleorbs1/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
 
 	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
@@ -310,15 +310,15 @@
 	}
 }
 
-%\tikzset{springpower1/.pic={
+%\tikzset{noellepower1/.pic={
 %	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs1};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage 1/2/3 targets 2.\\Move self forward 1.};	
 %}}
 
-\tikzset{springpower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Ice Storm}\\[0.25ex]Damage 1/2/3 targets 2.};	
+\tikzset{noellepower1/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Blizzard}\\[0.25ex]Damage 1/2/3 targets 2.};	
 }}
 
-\tikzset{springorbs2/.pic={
+\tikzset{noelleorbs2/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
 
 	\node[draw, fill=ForestGreen, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
@@ -332,16 +332,16 @@
 	}
 }
 
-%\tikzset{springpower2/.pic={
+%\tikzset{noellepower2/.pic={
 %	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs2};}\\[0.25ex]\setmainfont{Roboto Condensed}Damage target 1/2/3.\\Pull target to front.};	
 %}}
 
-\tikzset{springpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Slip and Slide}\\[0.25ex]Damage target 1/2/3.\\Pull target to front.};	
+\tikzset{noellepower2/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Ice Sheet}\\[0.25ex]Damage target 1/2/3.\\Reposition target.};	
 }}
 
 
-\tikzset{springorbs3/.pic={
+\tikzset{noelleorbs3/.pic={
 %	\path (-0.875in, 0) -- (0.875in, 0);
 
 	\node[draw, very thick, circle, inner sep=0pt, minimum width=0.375cm] at (-1.875cm,0) {};
@@ -355,12 +355,12 @@
 	}
 }
 
-%\tikzset{springpower3/.pic={
+%\tikzset{noellepower3/.pic={
 %	\node[text width=1.75in, minimum width=2in] at (0,0) {\tikz{\pic[xscale=#1, transform shape] {springorbs3};}\\[0.25ex]\setmainfont{Roboto Condensed}Pull target forward 1.\\Move self back 1.};	
 %}}
 
-\tikzset{springpower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Frozen Cage}\\[0.25ex]Stun target 1.};	
+\tikzset{noellepower3/.pic={
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Polar Vortex}\\[0.25ex]Stun 2 targets.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -408,7 +408,7 @@
 %}}
 
 \tikzset{clarkepower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Iron Dome}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Eye of the Storm}\\[0.25ex]\setmainfont{Roboto Condensed}Shield 1/2/3 allies.};	
 }}
 
 
@@ -431,7 +431,7 @@
 %}}
 
 \tikzset{clarkepower3/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Indefatigable}\\[0.25ex]Heal self 4.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Second Wind}\\[0.25ex]Heal self 4.};	
 }}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -623,7 +623,7 @@
 %}}
 
 \tikzset{victorpower2/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Penetrating Gaze}\\[0.25ex]Damage target 1/2/3.\\Push target to rear.};
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Penetrating Gaze}\\[0.25ex]Damage target 1/2/3.\\Reposition target.};
 }}
 
 \tikzset{victororbs3/.pic={
@@ -740,7 +740,7 @@
 %}}
 
 \tikzset{xerxespower1/.pic={
-	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Gravity Well}\\[0.25ex]Damage target 1/2/3.\\Pull target forward 1.};	
+	\node[text width=1.75in, minimum width=2in] at (0,0) {\setmainfont{Roboto Condensed}\textbf{Gravity Well}\\[0.25ex]Damage target 1/2/3.\\Reposition target.};	
 }}
 
 \tikzset{xerxesorbs2/.pic={
