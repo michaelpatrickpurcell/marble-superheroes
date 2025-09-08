@@ -1,0 +1,66 @@
+\documentclass[a6paper, parskip=half, DIV=14, 12pt]{scrartcl}
+
+\usepackage{marblesuperheroes}
+
+\usepackage{marblerules}
+
+
+\begin{document}
+{%
+\thispagestyle{empty}
+		\enlargethispage{3.5\baselineskip} % Move the bottom line (author and date) down a bit
+\setmainfont[Scale=1.0]{Roboto}
+\begin{center}
+\makeatletter
+{\footnotesize Version \@version}
+\makeatother
+
+
+\vfill
+
+{
+\setmainfont[Scale=2.25]{Roboto-Black}
+\Huge
+Marble\\[0.5ex]Matchup
+}
+
+\vspace{-0.5cm}
+
+%\tikz{\node[inner sep=0pt] {\includegraphics[height=8cm]{Images/pirate-ship-small.png}};}
+
+\vfill{}
+
+{
+\setmainfont{Roboto}
+\large
+Designed by Michael Purcell
+}
+\end{center}
+}
+
+\newpage
+\input{marble_matchup_overview}
+
+\newpage
+
+\input{marble_matchup_components}
+%
+\newpage
+
+\input{marble_matchup_setup}
+
+\newpage
+
+\input{marble_matchup_gameplay}
+
+\vfill
+
+\hrulefill
+
+{\footnotesize \textbf{Design}: Michael Purcell \hfill \textbf{Contact}:~\href{mailto:mike@armiger.games}{mike@armiger.games}}
+%
+%\newpage
+%
+%\input{aoa_scoring_summary}
+
+\end{document}
