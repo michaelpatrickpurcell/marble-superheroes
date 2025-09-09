@@ -1298,7 +1298,7 @@
 
 %    \node[draw, minimum width=1.75in, minimum height=2.5in, inner sep=0pt] at (0,0) {};
 
-	\pic () at (0,0) {smallcutguide={#8}};
+%	\pic () at (0,0) {smallcutguide={#8}};
 }}}
 
 \tikzset{pics/clashhero/.style n args={4}{%
@@ -1343,7 +1343,7 @@
 	code={
 %	    \node[draw, minimum width=1.75in, minimum height=2.5in, inner sep=0pt] at (0,0) {};
     
-    \node at (0,0) {\setmainfont[Scale=5]{Bangers}\Huge #1};
+    \node[text width=1.5in, align=center] at (0,0) {\setmainfont[Scale=1.5]{Roboto-Black}\Huge #1};
 	\pic () at (0,0) {smallcutguide={#2}};
 
 }}}
