@@ -6,6 +6,7 @@
 \color{black}
 
 \usepackage{tikz}
+\usepackage{booktabs}
 
 \usepackage{unicode-math}
 \setmathfont{texgyreschola-math.otf}[math-style=TeX]
@@ -15,12 +16,13 @@
 \usepackage{calc}
 
 \usepackage{subcaption}
+\usepackage[hidelinks]{hyperref} % Add hyperlinks to the pdf file. This should usually be the last package loaded before \begin{document}
+
 \usepackage{scrlayer-scrpage} % Manage headers and footers in Koma-Script document classes
 \setlength{\footskip}{1cm}
 
 \usepackage[type={CC}, version={4.0}, modifier={by}]{doclicense} % Add text and icons for creative commons license
 
-\usepackage[hidelinks]{hyperref} % Add hyperlinks to the pdf file. This should usually be the last package loaded before \begin{document}
 
 \makeatletter
 \newcommand{\version}[1]{\small\newcommand{\@version}{#1}}
@@ -67,7 +69,7 @@
 
 
 
-\version{0.1}
+\version{0.2}
 \raggedright%
 
 \definecolor{bandana}{HTML}{D41e25}
